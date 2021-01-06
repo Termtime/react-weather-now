@@ -89,15 +89,23 @@ const App = () => {
               <WeatherIcon weather={weather.title} />
             </div>
             <div className="row center mb-4 mt-3">
-              <h1>{displayTemp.data.curr} °C</h1>
+              <h1>
+                {displayTemp.data.curr} °{displayTemp.unit}
+              </h1>
             </div>
             <div className="row center my-3">
-              <h3 className="mx-4">Min: {displayTemp.data.min} °C</h3>
-              <h3 className="mx-4">Max: {displayTemp.data.max} °C</h3>
+              <h3 className="mx-4">
+                Min: {displayTemp.data.min} °{displayTemp.unit}
+              </h3>
+              <h3 className="mx-4">
+                Max: {displayTemp.data.max} °{displayTemp.unit}
+              </h3>
             </div>
             <div className="row center my-3">
               <h3 className="mx-3">Humidity: {displayTemp.data.humidity}%</h3>
-              <h3 className="mx-3">Feels like {displayTemp.data.feels} °C</h3>
+              <h3 className="mx-3">
+                Feels like {displayTemp.data.feels} °{displayTemp.unit}
+              </h3>
             </div>
           </div>
           <div className="user-select-none row center fixed-bottom my-5">
