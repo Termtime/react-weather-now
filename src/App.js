@@ -72,65 +72,72 @@ const App = () => {
       });
     }
   }
+  console.log(weather);
   return (
-    <div className="App h-100">
+    <div className="App container row">
       {weather && displayTemp ? (
         <React.Fragment>
-          <div
-            id="current-weather"
-            className={`${weather.title}-background h-100 column center-v`}
-          >
-            <div className="row center">
-              <h2>
-                Weather in {location.city}, {location.country}
-              </h2>
-            </div>
-            <div id="weather-icon" className="row center">
-              <WeatherIcon weather={weather.title} />
-            </div>
-            <div className="row center mb-4 mt-3">
-              <h1>
-                {displayTemp.data.curr} °{displayTemp.unit}
-              </h1>
-            </div>
-            <div className="row center my-3">
-              <h3 className="mx-4">
-                Min: {displayTemp.data.min} °{displayTemp.unit}
-              </h3>
-              <h3 className="mx-4">
-                Max: {displayTemp.data.max} °{displayTemp.unit}
-              </h3>
-            </div>
-            <div className="row center my-3">
-              <h3 className="mx-3">Humidity: {displayTemp.data.humidity}%</h3>
-              <h3 className="mx-3">
-                Feels like {displayTemp.data.feels} °{displayTemp.unit}
-              </h3>
-            </div>
-          </div>
-          <div className="user-select-none row center fixed-bottom my-5">
-            <div className="row center w-50">
-              <h3
-                id="c-btn"
-                className="hover-scale col-1 selected"
-                onClick={toggleUnits}
-              >
-                °C
-              </h3>
-              <h3
-                id="f-btn"
-                className="hover-scale col-1"
-                onClick={toggleUnits}
-              >
-                °F
-              </h3>
-            </div>
-          </div>
-          <div className="row center fixed-bottom mb-1 text-white">
-            <p>
-              Made by Mario Mejia.{"  "}
-              <a href="https://github.com/Termtime">Github</a>
-            </p>
+          <div className="container col">
+            <main id="current-weather">
+              <div className="row center text-center">
+                <h2>
+                  Weather in {location.city}, {location.country}
+                </h2>
+              </div>
+              <br />
+              <h1 className="row center">{weather.title}</h1>
+              <small className="row center text-white text-capitalize">
+                {weather.desc}
+              </small>
+              <div id="weather-icon" className="row center">
+                <WeatherIcon weather={weather.title} />
+              </div>
+              <div className="row center mb-4 mt-3">
+                <h1>
+                  {displayTemp.data.curr} °{displayTemp.unit}
+                </h1>
+              </div>
+              <div className="row center my-3">
+                <h3 className="mx-4">
+                  Min: {displayTemp.data.min} °{displayTemp.unit}
+                </h3>
+                <h3 className="mx-4">
+                  Max: {displayTemp.data.max} °{displayTemp.unit}
+                </h3>
+              </div>
+              <div className="row center my-3">
+                <h3 className="mx-3">Humidity: {displayTemp.data.humidity}%</h3>
+                <h3 className="mx-3">
+                  Feels like {displayTemp.data.feels} °{displayTemp.unit}
+                </h3>
+              </div>
+            </main>
+            <footer className="user-select-none col center mt-5">
+              <div className="container">
+                <div className="row center">
+                  <h3
+                    id="c-btn"
+                    className="hover-scale col-1 selected"
+                    onClick={toggleUnits}
+                  >
+                    °C
+                  </h3>
+                  <h3
+                    id="f-btn"
+                    className="hover-scale col-1"
+                    onClick={toggleUnits}
+                  >
+                    °F
+                  </h3>
+                </div>
+                <div className="row center mb-1 text-white">
+                  <p>
+                    Made by Mario Mejia.{"  "}
+                    <a href="https://github.com/Termtime">Github</a>
+                  </p>
+                </div>
+              </div>
+            </footer>
           </div>
         </React.Fragment>
       ) : (
